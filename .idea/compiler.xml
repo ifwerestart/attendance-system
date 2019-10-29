@@ -9,12 +9,14 @@
         <module name="attendance-system" />
         <module name="eureka-service" />
         <module name="gateway-service" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="attendance-system" target="1.8" />
       <module name="eureka-service" target="1.8" />
       <module name="gateway-service" target="1.8" />
+      <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
