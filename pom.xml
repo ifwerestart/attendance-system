@@ -17,6 +17,7 @@
 
     <modules>
         <module>eureka-service</module>
+        <module>gateway-service</module>
     </modules>
 
     <properties>
