@@ -32,6 +32,11 @@ spring:
       minimum-idle: 5
       pool-name: DatebookHikariCP
       type: com.zaxxer.hikari.HikariDataSource
+#Mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/*/*.xml
+  type-aliases-package: com.qxccc.employeeservice
 
 logging:
   file: employeeservice.log

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxccc.employeeservice.dao.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.qxccc.employeeservice.domain.Role">
+    <id column="ROLE_ID" jdbcType="INTEGER" property="roleId" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qxccc.employeeservice.domain.Role">
+    <result column="ROLE_FUNCTION" jdbcType="LONGVARCHAR" property="roleFunction" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ROLE_ID, ROLE_NAME, STATE
+  </sql>
+  <sql id="Blob_Column_List">
+    ROLE_FUNCTION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from role
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from role
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qxccc.employeeservice.domain.Role">
+    insert into role (ROLE_ID, ROLE_NAME, STATE, 
+      ROLE_FUNCTION)
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
+      #{roleFunction,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qxccc.employeeservice.domain.Role">
+    insert into role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+      <if test="roleName != null">
+        ROLE_NAME,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="roleFunction != null">
+        ROLE_FUNCTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="roleFunction != null">
+        #{roleFunction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    <set>
+      <if test="roleName != null">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="roleFunction != null">
+        ROLE_FUNCTION = #{roleFunction,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR},
+      ROLE_FUNCTION = #{roleFunction,jdbcType=LONGVARCHAR}
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR}
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.qxccc.employeeservice.domain.Role">
+    <id column="ROLE_ID" jdbcType="INTEGER" property="roleId" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qxccc.employeeservice.domain.Role">
+    <result column="ROLE_FUNCTION" jdbcType="LONGVARCHAR" property="roleFunction" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ROLE_ID, ROLE_NAME, STATE
+  </sql>
+  <sql id="Blob_Column_List">
+    ROLE_FUNCTION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from role
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from role
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qxccc.employeeservice.domain.Role">
+    insert into role (ROLE_ID, ROLE_NAME, STATE, 
+      ROLE_FUNCTION)
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
+      #{roleFunction,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qxccc.employeeservice.domain.Role">
+    insert into role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+      <if test="roleName != null">
+        ROLE_NAME,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="roleFunction != null">
+        ROLE_FUNCTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="roleFunction != null">
+        #{roleFunction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    <set>
+      <if test="roleName != null">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="roleFunction != null">
+        ROLE_FUNCTION = #{roleFunction,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR},
+      ROLE_FUNCTION = #{roleFunction,jdbcType=LONGVARCHAR}
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qxccc.employeeservice.domain.Role">
+    update role
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=CHAR}
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+  </update>
+</mapper>
