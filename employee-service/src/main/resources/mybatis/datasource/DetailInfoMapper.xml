@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qxccc.employeeservice.dao.DetailInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.qxccc.employeeservice.domain.DetailInfo" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+    <result column="EDUCATION_LEVEL" property="educationLevel" jdbcType="VARCHAR" />
+    <result column="CERTIFICATE" property="certificate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, EDUCATION, EDUCATION_LEVEL, CERTIFICATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from detail_info
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from detail_info
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qxccc.employeeservice.domain.DetailInfo" >
+    insert into detail_info (USER_ID, EDUCATION, EDUCATION_LEVEL, 
+      CERTIFICATE)
+    values (#{userId,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{educationLevel,jdbcType=VARCHAR}, 
+      #{certificate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qxccc.employeeservice.domain.DetailInfo" >
+    insert into detail_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="education != null" >
+        EDUCATION,
+      </if>
+      <if test="educationLevel != null" >
+        EDUCATION_LEVEL,
+      </if>
+      <if test="certificate != null" >
+        CERTIFICATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="educationLevel != null" >
+        #{educationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="certificate != null" >
+        #{certificate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qxccc.employeeservice.domain.DetailInfo" >
+    update detail_info
+    <set >
+      <if test="education != null" >
+        EDUCATION = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="educationLevel != null" >
+        EDUCATION_LEVEL = #{educationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="certificate != null" >
+        CERTIFICATE = #{certificate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qxccc.employeeservice.domain.DetailInfo" >
+    update detail_info
+    set EDUCATION = #{education,jdbcType=VARCHAR},
+      EDUCATION_LEVEL = #{educationLevel,jdbcType=VARCHAR},
+      CERTIFICATE = #{certificate,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>
