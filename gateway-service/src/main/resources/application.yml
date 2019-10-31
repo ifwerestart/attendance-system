@@ -15,7 +15,12 @@ spring:
         - Path=/userApi/**
         filters:
         - StripPrefix=1
-
+      - id: my-employee-service
+        uri: lb://employee-service
+        predicates:
+        - Path=/employApi/**
+        filters:
+        - StripPrefix=1
 eureka:
   client:
     service-url:

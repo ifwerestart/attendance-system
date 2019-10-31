@@ -19,6 +19,7 @@
         <module>eureka-service</module>
         <module>gateway-service</module>
         <module>user-service</module>
+        <module>employee-service</module>
     </modules>
 
     <properties>
